@@ -8,7 +8,7 @@
     android:background="@drawable/bb">
 
     <TextView
-        android:id="@+id/txvtTituloForm"
+        android:id="@+id/txvtTituloProm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
@@ -31,13 +31,14 @@
         android:ems="10"
         android:hint="@string/factura"
         android:autofillHints="@string/factura"
-        android:inputType="textPersonName"
+        android:inputType="number|none"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvtTituloForm" />
+        app:layout_constraintTop_toBottomOf="@+id/txvtTituloProm" />
+
 
     <EditText
         android:id="@+id/edtFecha"
@@ -66,6 +67,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtFecha" />
@@ -81,7 +84,7 @@
         android:ems="10"
         android:hint="@string/monto"
         android:autofillHints="@string/monto"
-        android:inputType="textPersonName"
+        android:inputType="number|numberDecimal"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +103,7 @@
         android:ems="10"
         android:hint="@string/km"
         android:autofillHints="@string/km"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,5 +123,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtKm"
         app:rippleColor="@color/white" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
