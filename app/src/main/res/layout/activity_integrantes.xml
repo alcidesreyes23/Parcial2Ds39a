@@ -3,14 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/bb2"
     tools:context=".Integrantes">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvCategorias"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="402dp"
+        android:layout_height="250dp"
         android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +24,7 @@
         <LinearLayout
             android:id="@+id/lyCategorias"
             android:layout_width="match_parent"
-            android:layout_height="185dp"
+            android:layout_height="220dp"
             android:layout_margin="10dp"
             android:baselineAligned="false"
             android:orientation="horizontal">
@@ -39,6 +42,7 @@
                     android:id="@+id/txvIn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_mono_bold"
                     android:text="@string/integrantes"
                     android:textColor="#000"
                     android:textSize="24sp"
@@ -48,16 +52,18 @@
                     android:id="@+id/txvA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_mono_bold"
                     android:text="@string/angel"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txvE"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_mono_bold"
                     android:text="@string/erick"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -70,6 +76,7 @@
                         android:id="@+id/txvIn2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_mono_bold"
                         android:text="@string/grupo"
                         android:textColor="#000"
                         android:textSize="24sp"
@@ -79,6 +86,7 @@
                         android:id="@+id/txvA2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_mono_bold"
                         android:text="@string/ds39_a"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -98,6 +106,7 @@
                     android:id="@+id/txvCar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_mono_bold"
                     android:text="@string/carnet"
                     android:textColor="#000"
                     android:textSize="24sp"
@@ -107,6 +116,7 @@
                     android:id="@+id/txv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_mono_bold"
                     android:text="@string/_261118"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -115,6 +125,7 @@
                     android:id="@+id/txvDesc2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_mono_bold"
                     android:text="@string/_261318"
                     android:textSize="18sp"
                     android:textStyle="bold" />

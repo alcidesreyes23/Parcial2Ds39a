@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bb"
+    android:background="@drawable/aa"
     tools:context=".MainActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/splash" />
+        app:lottie_rawRes="@raw/splash2" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -31,11 +31,13 @@
         app:layout_constraintTop_toBottomOf="@+id/animationView">
 
         <TextView
-            android:id="@+id/txtTitulo"
+            android:id="@+id/txvTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tema"
+            android:fontFamily="@font/roboto_mono_bold"
+            android:text="Gas Station, LLC."
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -43,23 +45,35 @@
             android:id="@+id/txtAngel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_mono_bold"
             android:text="@string/created_by"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textColor="@color/design_default_color_surface"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_mono_bold"
             android:text="@string/erick"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_mono_bold"
             android:text="@string/angel"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
