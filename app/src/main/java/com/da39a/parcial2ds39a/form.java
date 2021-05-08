@@ -26,11 +26,7 @@ public class form extends AppCompatActivity  {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.opciones, android.R.layout.simple_spinner_item);
         opciones.setAdapter(adapter);
 
-        edtFecha.setOnClickListener(v -> {
-            if (v.getId() == R.id.edtFecha) {
-                showDatePickerDialog();
-            }
-        });
+        edtFecha.setOnClickListener(v -> {showDatePickerDialog();});
     }
 
     private void showDatePickerDialog() {
