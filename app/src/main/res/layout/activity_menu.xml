@@ -5,7 +5,7 @@
     android:id="@+id/lnlBotones"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bb"
+    android:background="@drawable/aa"
     tools:context=".Menu">
 
     <LinearLayout
@@ -33,9 +33,10 @@
                 android:id="@+id/btnComprar"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0"
                 android:backgroundTint="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:contentDescription="@string/imagen"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/comprar" />
@@ -49,6 +50,7 @@
                 android:backgroundTint="#FFFFFF"
                 android:contentDescription="@string/imagen"
                 android:scaleType="fitXY"
+                android:background="@android:color/transparent"
                 app:srcCompat="@drawable/prom2" />
 
 
