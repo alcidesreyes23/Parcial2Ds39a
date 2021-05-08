@@ -10,7 +10,7 @@ public class ModeloForm {
     @PrimaryKey(autoGenerate = true)
     int numFactura;
     @ColumnInfo(name = "fechaCompra")
-    Integer fechaCompra;
+    String fechaCompra;
     @ColumnInfo(name = "tipoCombustible")
     String tipoCombustible;
     @ColumnInfo(name = "km")
@@ -18,7 +18,7 @@ public class ModeloForm {
     @ColumnInfo(name = "monto")
     double monto;
 
-    public ModeloForm(int numFactura, Integer fechaCompra, String tipoCombustible, String km, double monto) {
+    public ModeloForm(int numFactura, String fechaCompra, String tipoCombustible, String km, double monto) {
         this.numFactura = numFactura;
         this.fechaCompra = fechaCompra;
         this.tipoCombustible = tipoCombustible;
@@ -34,11 +34,11 @@ public class ModeloForm {
         this.numFactura = numFactura;
     }
 
-    public Integer getFechaCompra() {
+    public String getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(Integer fechaCompra) {
+    public void setFechaCompra(String fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 

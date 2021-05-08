@@ -7,6 +7,10 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public class FormDAO {
+public interface FormDAO {
+    @Query("SELECT * FROM MODELOFORM")
+    List<ModeloForm> getAll();
 
+    @Insert
+    Long insert(ModeloForm modeloForm);
 }
