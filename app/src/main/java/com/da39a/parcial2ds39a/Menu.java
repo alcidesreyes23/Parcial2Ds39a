@@ -25,7 +25,7 @@ public class Menu extends AppCompatActivity {
         });
 
         btnC.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this,Integrantes.class);
+            Intent intent = new Intent(Menu.this,form.class);
             startActivity(intent);
         });
     }
