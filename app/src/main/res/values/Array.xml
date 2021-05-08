@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opciones">
+        <item>Diesel</item>
+        <item>Regular</item>
+        <item>Premium</item>
+    </string-array>
+</resources>
