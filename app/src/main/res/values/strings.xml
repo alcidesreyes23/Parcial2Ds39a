@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">Parcial2Ds39a</string>
+    <string name="app_name">Consumo de combustibles</string>
+    <string name="imagen">imagen</string>
+    <string name="integrantes">Integrantes</string>
+    <string name="carnet">Carnet</string>
+    <string name="angel_saravia">Angel Saravia</string>
+    <string name="erick_reyes">Erick Reyes</string>
+    <string name="_261118">#261118</string>
+    <string name="_261318">#261318</string>
+    <string name="tema">TEMA</string>
+    <string name="created_by">Created By:</string>
+    <string name="erick">Erick Alcides Reyes Avila</string>
+    <string name="angel">Angel Sebastian Saravia Serpas</string>
+    <string name="grupo">Grupo</string>
+    <string name="ds39_a">DS39-A</string>
+    <string name="registro_de_compra">REGISTRO DE COMPRA</string>
+    <string name="factura"># Factura</string>
+    <string name="km">KM al momento de carga</string>
+    <string name="btncompra">Registrar Compra</string>
+    <string name="monto">Monto de Compra</string>
+    <string name="formato_fecha">31/01/2021</string>
 </resources>
