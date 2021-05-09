@@ -64,7 +64,12 @@ public class Mostrar extends AppCompatActivity {
             valores += list.get(i).numFactura + " - " + list.get(i).fechaCompra + " - " + list.get(i).tipoCombustible + " - " + list.get(i).km + " - " + list.get(i).monto + "\n\n";
         }
 
-            txM.setText(valores);
+        double monto = db.formDAO().promedioKm("09/05/2021","10/05/2021","Diesel");
+        double monto2 = db.formDAO().promedio("02/05/2021","04/05/2021","Diesel");
+        double monto3 = db.formDAO().promedioAll("Diesel");
+        double monto4 = db.formDAO().promedioAllKm("Diesel");
+        valores += "\n\n\n SUMATORIA" + monto + "\n\nSUM " + monto2 + "\n\nSUM " + monto3 + "\n\nSUM " + monto4;
+        txM.setText(valores);
 
 
     }

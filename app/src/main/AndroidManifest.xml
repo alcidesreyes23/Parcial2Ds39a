@@ -12,8 +12,14 @@
         <activity android:name=".Mostrar"/>
         <activity
             android:name=".Integrantes"
-            android:label="@string/integrantes" />
-        <activity android:name=".Promedios"
+            android:label="@string/integrantes"
+            android:parentActivityName=".Menu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menu"/>
+        </activity>
+        <activity
+            android:name=".Promedios"
             android:label="@string/Promedios"
             android:parentActivityName=".Menu">
             <meta-data
@@ -21,21 +27,21 @@
                 android:value=".Menu"/>
         </activity>
         <activity android:name=".Menu" />
-        <activity android:name=".form"
+        <activity
+            android:name=".form"
             android:label="@string/registro_de_compra"
             android:parentActivityName=".Menu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menu"/>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

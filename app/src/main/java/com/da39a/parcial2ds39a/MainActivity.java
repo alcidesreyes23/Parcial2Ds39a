@@ -18,13 +18,10 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent mostrar = new Intent(MainActivity.this,Menu.class);
-                startActivity(mostrar);
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            Intent mostrar = new Intent(MainActivity.this,Menu.class);
+            startActivity(mostrar);
+            finish();
         }, 4300);
     }
 }

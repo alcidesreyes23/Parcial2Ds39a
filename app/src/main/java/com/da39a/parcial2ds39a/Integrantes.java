@@ -1,13 +1,8 @@
 package com.da39a.parcial2ds39a;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Integrantes extends AppCompatActivity {
 

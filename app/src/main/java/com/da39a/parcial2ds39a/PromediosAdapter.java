@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,9 +22,11 @@ public class PromediosAdapter extends RecyclerView.Adapter<PromediosAdapter.View
         }
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView titulo, promKm, promDinero;
+        private final TextView titulo;
+        private final TextView promKm;
+        private final TextView promDinero;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -55,7 +56,7 @@ public class PromediosAdapter extends RecyclerView.Adapter<PromediosAdapter.View
     //Método que realiza las modificaciones del contenido para cada item
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.titulo.setText(listaProm.get(position).getTipoCombustible());
-        holder.promKm.setText("" + listaProm.get(position).getKm());
+        holder.promKm.setText(listaProm.get(position).getKm());
         holder.promDinero.setText(listaProm.get(position).getMonto());
     }
 

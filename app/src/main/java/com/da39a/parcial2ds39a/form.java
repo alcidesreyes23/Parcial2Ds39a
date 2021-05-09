@@ -1,23 +1,15 @@
 package com.da39a.parcial2ds39a;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 public class form extends AppCompatActivity  {
     Spinner opciones;
@@ -54,7 +46,7 @@ public class form extends AppCompatActivity  {
                     Integer.parseInt(edtKm.getText().toString()),
                     Double.parseDouble(edtMonto.getText().toString())
             );
-            Long reg = db.formDAO().insert(modeloForm);
+            db.formDAO().insert(modeloForm);
             Toast.makeText(getApplicationContext(),"Registro almacenado correctamente",Toast.LENGTH_SHORT).show();
             limpiar();
         });
@@ -83,22 +75,5 @@ public class form extends AppCompatActivity  {
 
     private String twoDigits(int n) {
         return (n<=9) ? ("0"+n) : String.valueOf(n);
-    }
-
-    //CODIGO DEL ACTIONBAR PEGAR EN TODAS LAS ACTIVITIES
-    @Override
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        getMenuInflater().inflate(R.menu.menuoverflow, menu);
-        return  true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
-        if (id == R.id.miIntegrantes)
-        {
-            Intent acerca = new Intent(form.this,Integrantes.class);
-            startActivity(acerca);
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
