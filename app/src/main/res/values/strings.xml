@@ -30,4 +30,12 @@
     <string name="promkm">80</string>
     <string name="Gas_Station_LLC" />
     <string name="filtar_por_fecha">Filtar por fecha</string>
+    <string name="base_de_datos_compras">Base de Datos Compras</string>
+    <string name="n_factura">N°</string>
+    <string name="fecha">Fecha</string>
+    <string name="kmT">KM</string>
+    <string name="tipo">Tipo</string>
+    <string name="montoT">Monto</string>
+    <string name="totales">Totales</string>
+    <string name="mostrar">Listado de compras</string>
 </resources>

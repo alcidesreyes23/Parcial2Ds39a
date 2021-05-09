@@ -14,6 +14,12 @@ public interface FormDAO {
     @Query("SELECT * FROM MODELOFORM WHERE fechaCompra BETWEEN :fechaIni AND :fechaFin")
     List<ModeloForm> rango (String fechaIni, String fechaFin);
 
+    @Query("SELECT SUM(km) FROM MODELOFORM")
+    double totalKm ();
+
+    @Query("SELECT SUM(monto) FROM MODELOFORM")
+    double totalM ();
+
     @Query("SELECT AVG(monto) FROM MODELOFORM WHERE tipoCombustible = :tipo")
     double promedioAll (String tipo);
 
@@ -27,5 +33,5 @@ public interface FormDAO {
     double promedioKm (String fechaIni, String fechaFin, String tipo);
 
     @Insert
-    Long insert(ModeloForm modeloForm);
+    void insert(ModeloForm modeloForm);
 }
