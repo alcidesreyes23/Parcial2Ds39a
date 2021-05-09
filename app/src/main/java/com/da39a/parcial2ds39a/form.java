@@ -1,6 +1,7 @@
 package com.da39a.parcial2ds39a;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;

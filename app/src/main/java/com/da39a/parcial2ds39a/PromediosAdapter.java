@@ -1,5 +1,6 @@
 package com.da39a.parcial2ds39a;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +25,9 @@ public class PromediosAdapter extends RecyclerView.Adapter<PromediosAdapter.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView titulo;
-        private final TextView promKm;
-        private final TextView promDinero;
+        private TextView titulo;
+        private TextView promKm;
+        private TextView promDinero;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -38,8 +39,12 @@ public class PromediosAdapter extends RecyclerView.Adapter<PromediosAdapter.View
 
     public List<ModelProm> listaProm;
 
-    public PromediosAdapter(List<ModelProm> listaProm) {
+    // Cambio
+    public Context context;
+    public PromediosAdapter(List<ModelProm> listaProm, Context context) {
         this.listaProm = listaProm;
+        // Cambio >> se agregó un contexto como parametro para poder acceder al método que está en Promedios
+        this.context = context;
     }
 
     @NonNull
@@ -48,7 +53,8 @@ public class PromediosAdapter extends RecyclerView.Adapter<PromediosAdapter.View
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listado, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
-        view.setOnClickListener(this);
+        //Cambio
+        //view.setOnClickListener(this);
         return viewHolder;
     }
 
@@ -58,6 +64,14 @@ public class PromediosAdapter extends RecyclerView.Adapter<PromediosAdapter.View
         holder.titulo.setText(listaProm.get(position).getTipoCombustible());
         holder.promKm.setText(listaProm.get(position).getKm());
         holder.promDinero.setText(listaProm.get(position).getMonto());
+
+        // Cambio>> Se invoco al metódo data de la clase Promedios
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((Promedios)context).data(view);
+            }
+        });
     }
 
     @Override

@@ -1,14 +1,18 @@
 package com.da39a.parcial2ds39a;
 
-import android.app.AlertDialog;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
+
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -35,61 +39,66 @@ public class Promedios extends AppCompatActivity {
         fechaFin.setOnClickListener(v -> showDatePickerDialogF());
 
         rcvProm.setLayoutManager(new LinearLayoutManager(this));
-        promediosAdapter = new PromediosAdapter(mostrarDatos(fechaInicio.getText().toString(), fechaFin.getText().toString()));
+        promediosAdapter = new PromediosAdapter(mostrarDatos(fechaInicio.getText().toString(), fechaFin.getText().toString()),this);
         rcvProm.setAdapter(promediosAdapter);
 
-
-
         promediosAdapter.setOnClickListener(v -> {
-            AppDataBase db = Room.databaseBuilder(Promedios.this, AppDataBase.class, "dbcompras").allowMainThreadQueries().build();
-            List<ModeloForm> lista;
-            StringBuilder cadenaDiesel = new StringBuilder();
-            StringBuilder cadenaRegular = new StringBuilder();
-            StringBuilder cadenaPre = new StringBuilder();
-            int contD = 0, contR = 0, contP = 0;
-
-            if (fechaInicio.getText().toString().equals("") || fechaFin.getText().toString().equals("")){
-                lista = db.formDAO().getAll();
-            } else {
-                lista = db.formDAO().rango(fechaInicio.getText().toString(),fechaFin.getText().toString());
-            }
-            for (int i = 0; i < lista.size(); i++){
-                switch (lista.get(i).tipoCombustible)
-                {
-                    case "Diesel":
-                        contD++;
-                        cadenaDiesel.append(contD).append(" - ").append(lista.get(i).getFechaCompra()).append(":  $").append(lista.get(i).getMonto()).append("\n");
-                        break;
-                    case "Regular":
-                        contR++;
-                        cadenaRegular.append(contR).append(" - ").append(lista.get(i).getFechaCompra()).append(":  $").append(lista.get(i).getMonto()).append("\n");
-                        break;
-                    case "Premium":
-                        contP++;
-                        cadenaPre.append(contP).append(" - ").append(lista.get(i).getFechaCompra()).append(":  $").append(lista.get(i).getMonto()).append("\n");
-                        break;
-                }
-            }
-            String compare = promediosAdapter.listaProm.get(rcvProm.getChildAdapterPosition(v)).getTipoCombustible();
-            switch (compare) {
-                case "Diesel":
-                    createDialog(compare, cadenaDiesel.toString(),contD);
-                    break;
-                case "Regular":
-                    createDialog(compare, cadenaRegular.toString(),contR);
-                    break;
-                case "Premium":
-                    createDialog(compare, cadenaPre.toString(),contP);
-                    break;
-            }
+            data(v);
         });
 
         //Filtrar las fechas
         btnFiltrar.setOnClickListener(v -> {
-            rcvProm.setLayoutManager(new LinearLayoutManager(this));
-            promediosAdapter = new PromediosAdapter(mostrarDatos(fechaInicio.getText().toString(),fechaFin.getText().toString()));
+            // Cambio >> línea 53 no va y se le pasó al constructor el contexto this
+            rcvProm.setAdapter(null);
+            //rcvProm.setLayoutManager(new LinearLayoutManager(this));
+            promediosAdapter = new PromediosAdapter(mostrarDatos(fechaInicio.getText().toString(),fechaFin.getText().toString()), this);
             rcvProm.setAdapter(promediosAdapter);
         });
+    }
+    public void data(View v)
+    {
+        /*Cortar*/
+        AppDataBase db = Room.databaseBuilder(Promedios.this, AppDataBase.class, "dbcompras").allowMainThreadQueries().build();
+        List<ModeloForm> lista;
+        StringBuilder cadenaDiesel = new StringBuilder();
+        StringBuilder cadenaRegular = new StringBuilder();
+        StringBuilder cadenaPre = new StringBuilder();
+        int contD = 0, contR = 0, contP = 0;
+
+        if (fechaInicio.getText().toString().equals("") || fechaFin.getText().toString().equals("")){
+            lista = db.formDAO().getAll();
+        } else {
+            lista = db.formDAO().rango(fechaInicio.getText().toString(),fechaFin.getText().toString());
+        }
+        for (int i = 0; i < lista.size(); i++){
+            switch (lista.get(i).tipoCombustible)
+            {
+                case "Diesel":
+                    contD++;
+                    cadenaDiesel.append(contD).append(" - ").append(lista.get(i).getFechaCompra()).append(":  $").append(lista.get(i).getMonto()).append("\n");
+                    break;
+                case "Regular":
+                    contR++;
+                    cadenaRegular.append(contR).append(" - ").append(lista.get(i).getFechaCompra()).append(":  $").append(lista.get(i).getMonto()).append("\n");
+                    break;
+                case "Premium":
+                    contP++;
+                    cadenaPre.append(contP).append(" - ").append(lista.get(i).getFechaCompra()).append(":  $").append(lista.get(i).getMonto()).append("\n");
+                    break;
+            }
+        }
+        String compare = promediosAdapter.listaProm.get(rcvProm.getChildAdapterPosition(v)).getTipoCombustible();
+        switch (compare) {
+            case "Diesel":
+                createDialog(compare, cadenaDiesel.toString(),contD);
+                break;
+            case "Regular":
+                createDialog(compare, cadenaRegular.toString(),contR);
+                break;
+            case "Premium":
+                createDialog(compare, cadenaPre.toString(),contP);
+                break;
+        }
     }
 
     //Crea el alertDialog
