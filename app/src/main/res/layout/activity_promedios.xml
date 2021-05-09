@@ -11,7 +11,7 @@
         android:id="@+id/txvtTituloProm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="8dp"
         android:text="@string/Promedios"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -21,12 +21,28 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Promedios" />
 
+    <Button
+        android:id="@+id/btnFiltrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:insetLeft="10dp"
+        android:text="@string/filtar_por_fecha"
+        android:textAlignment="center"
+        app:cornerRadius="20dp"
+        app:icon="@android:drawable/ic_menu_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvdesc" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,18 +55,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_baseline_date_range_24"
+            android:autofillHints=""
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_baseline_date_range_24"
             android:ems="10"
-            android:inputType="date" />
+            android:focusable="false"
+            android:hint="@string/formato_fecha"
+            android:inputType="date"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/edtFechaFin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_baseline_date_range_24"
+            android:autofillHints=""
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_baseline_date_range_24"
             android:ems="10"
-            android:inputType="date" />
+            android:focusable="false"
+            android:hint="@string/formato_fecha"
+            android:inputType="date"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -65,33 +93,46 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txvFI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Fecha Inicio"
+            android:text="@string/fecha_inicio"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txvFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Fecha Fin"
+            android:text="@string/fecha_fin"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/lvLista"
-        android:layout_width="0dp"
-        android:layout_height="493dp"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/txvdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="@string/desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvPromedios"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFiltrar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

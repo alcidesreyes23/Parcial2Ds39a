@@ -45,13 +45,13 @@ public class form extends AppCompatActivity  {
         edtFecha.setOnClickListener(v -> showDatePickerDialog());
 
         btnAdd.setOnClickListener(v -> {
-            AppDataBase db = Room.databaseBuilder(form.this, AppDataBase.class, "dbcompras").allowMainThreadQueries().build();
+            AppDataBase db = Room.databaseBuilder(form.this, AppDataBase.class, "dbcompras").allowMainThreadQueries().fallbackToDestructiveMigration().build();
 
             ModeloForm modeloForm = new ModeloForm(
                     Integer.parseInt(edtFactura.getText().toString()),
                     edtFecha.getText().toString(),
                     opciones.getSelectedItem().toString(),
-                    edtKm.getText().toString(),
+                    Integer.parseInt(edtKm.getText().toString()),
                     Double.parseDouble(edtMonto.getText().toString())
             );
             Long reg = db.formDAO().insert(modeloForm);

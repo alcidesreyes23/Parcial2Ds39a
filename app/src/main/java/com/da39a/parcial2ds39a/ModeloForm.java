@@ -2,6 +2,7 @@ package com.da39a.parcial2ds39a;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -14,13 +15,20 @@ public class ModeloForm {
     @ColumnInfo(name = "tipoCombustible")
     String tipoCombustible;
     @ColumnInfo(name = "km")
-    String km;
+    int km;
     @ColumnInfo(name = "monto")
     double monto;
 
-    public ModeloForm(int numFactura, String fechaCompra, String tipoCombustible, String km, double monto) {
+    public ModeloForm(int numFactura, String fechaCompra, String tipoCombustible, int km, double monto) {
         this.numFactura = numFactura;
         this.fechaCompra = fechaCompra;
+        this.tipoCombustible = tipoCombustible;
+        this.km = km;
+        this.monto = monto;
+    }
+
+    @Ignore
+    public ModeloForm(String tipoCombustible, int km, double monto) {
         this.tipoCombustible = tipoCombustible;
         this.km = km;
         this.monto = monto;
@@ -50,11 +58,11 @@ public class ModeloForm {
         this.tipoCombustible = tipoCombustible;
     }
 
-    public String getKm() {
+    public int getKm() {
         return km;
     }
 
-    public void setKm(String km) {
+    public void setKm(int km) {
         this.km = km;
     }
 

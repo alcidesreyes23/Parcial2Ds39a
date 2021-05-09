@@ -11,6 +11,11 @@ public interface FormDAO {
     @Query("SELECT * FROM MODELOFORM")
     List<ModeloForm> getAll();
 
+    @Query("SELECT * FROM MODELOFORM   WHERE tipoCombustible = :tipo")
+    List<ModeloForm> tipoCombustible (String tipo);
+
+    @Query("SELECT * FROM MODELOFORM WHERE fechaCompra BETWEEN :fechaIni AND :fechaFin")
+    List<ModeloForm> rango (String fechaIni, String fechaFin);
     @Insert
     Long insert(ModeloForm modeloForm);
 }

@@ -19,6 +19,15 @@
     <string name="btncompra">Registrar Compra</string>
     <string name="monto">Monto de Compra</string>
     <string name="formato_fecha">31/01/2021</string>
-    <string name="Promedios" />
+    <string name="Promedios">Promedios</string>
+    <string name="fecha_inicio">Fecha Inicio</string>
+    <string name="fecha_fin">Fecha Fin</string>
+    <string name="desc">Consumo promedio segun cantidad de recargas por periodo.</string>
+    <string name="tipoGasolina">Diesel</string>
+    <string name="km_promedio">Km promedio</string>
+    <string name="gasto_promedio">Gasto promedio</string>
+    <string name="prom">8.70</string>
+    <string name="promkm">80</string>
     <string name="Gas_Station_LLC" />
+    <string name="filtar_por_fecha">Filtar por fecha</string>
 </resources>

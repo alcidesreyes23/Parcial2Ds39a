@@ -14,7 +14,7 @@
             android:name=".Integrantes"
             android:label="@string/integrantes" />
         <activity android:name=".Promedios"
-            android:label="Promedios"
+            android:label="@string/Promedios"
             android:parentActivityName=".Menu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
