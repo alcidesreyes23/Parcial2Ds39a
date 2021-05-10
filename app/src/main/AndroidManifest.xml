@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Parcial2Ds39a">
-        <activity android:name=".Mostrar"/>
+        <activity
+            android:name=".Mostrar"
+            android:label="@string/mostrar"
+            android:parentActivityName=".form">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".form"/>
+        </activity>
         <activity
             android:name=".Integrantes"
             android:label="@string/integrantes"
