@@ -29,7 +29,7 @@
         android:layout_marginTop="12dp"
         android:layout_weight="1"
         android:insetLeft="10dp"
-        android:text="@string/filtar_por_fecha"
+        android:text="Filtrar por fecha"
         android:textAlignment="center"
         app:cornerRadius="20dp"
         app:icon="@android:drawable/ic_menu_search"

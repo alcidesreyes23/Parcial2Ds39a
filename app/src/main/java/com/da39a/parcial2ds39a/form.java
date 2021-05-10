@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class form extends AppCompatActivity  {
     Spinner opciones;
     EditText edtFecha, edtFactura, edtMonto, edtKm;
@@ -38,18 +40,36 @@ public class form extends AppCompatActivity  {
         edtFecha.setOnClickListener(v -> showDatePickerDialog());
 
         btnAdd.setOnClickListener(v -> {
-            AppDataBase db = Room.databaseBuilder(form.this, AppDataBase.class, "dbcompras").allowMainThreadQueries().fallbackToDestructiveMigration().build();
+            // 2. Mensaje de confirmacion
+            new SweetAlertDialog(form.this, SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Nueva Compra")
+                    .setContentText("¿Desea realizar la siguiente compra??")
+                    .setConfirmText("Si")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            AppDataBase db = Room.databaseBuilder(form.this, AppDataBase.class, "dbcompras").allowMainThreadQueries().fallbackToDestructiveMigration().build();
 
-            ModeloForm modeloForm = new ModeloForm(
-                    Integer.parseInt(edtFactura.getText().toString()),
-                    edtFecha.getText().toString(),
-                    opciones.getSelectedItem().toString(),
-                    Integer.parseInt(edtKm.getText().toString()),
-                    Double.parseDouble(edtMonto.getText().toString())
-            );
-            db.formDAO().insert(modeloForm);
-            Toast.makeText(getApplicationContext(),"Registro almacenado correctamente",Toast.LENGTH_SHORT).show();
-            limpiar();
+                            ModeloForm modeloForm = new ModeloForm(
+                                    Integer.parseInt(edtFactura.getText().toString()),
+                                    edtFecha.getText().toString(),
+                                    opciones.getSelectedItem().toString(),
+                                    Integer.parseInt(edtKm.getText().toString()),
+                                    Double.parseDouble(edtMonto.getText().toString())
+                            );
+                            db.formDAO().insert(modeloForm);
+                            Toast.makeText(getApplicationContext(),"Registro almacenado correctamente",Toast.LENGTH_SHORT).show();
+                            limpiar();
+                            sDialog.dismissWithAnimation();
+                        }
+                    })
+                    .setCancelButton("No", new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.dismissWithAnimation();
+                        }
+                    })
+                    .show();
         });
 
         btnMostrar.setOnClickListener(v -> {

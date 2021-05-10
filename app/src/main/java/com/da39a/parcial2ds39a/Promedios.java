@@ -19,6 +19,8 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class Promedios extends AppCompatActivity {
     EditText fechaInicio, fechaFin;
     RecyclerView rcvProm;
@@ -105,7 +107,7 @@ public class Promedios extends AppCompatActivity {
     public void createDialog(String title, String desc, int op){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Detalles de compras:\n" + title);
-        if (op == 0 ) builder.setMessage("No hay compras registradas en el periodo");
+        if (op == 0 )   builder.setMessage("No hay compras registradas en el periodo");
         else builder.setMessage(desc);
         builder.setPositiveButton("Aceptar",null);
         AlertDialog dialog = builder.create();
